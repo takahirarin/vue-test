@@ -1,17 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <p>{{ name }}</p>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+      return {
+        name: process.env.VUE_APP_NAME,
+      };
+    },
 }
+console.log("env:",process.env.VUE_APP_NAME);
 </script>
 
 <style>
