@@ -5,4 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "this is pen"
+  env:
+    steps:
       - run: echo ${{ vars.VUE_APP_NAME }}
