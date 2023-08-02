@@ -7,5 +7,6 @@ jobs:
       - run: echo "this is pen"
   env:
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - run: echo ${{ vars.VUE_APP_NAME }}
