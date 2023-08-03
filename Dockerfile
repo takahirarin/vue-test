@@ -12,8 +12,7 @@ RUN npm install
 
 # ホストのソースコードをコンテナ内の作業ディレクトリにコピー
 COPY . .
-RUN ls
-RUN cd
+
 
 # アプリをビルド
 RUN npm run build
