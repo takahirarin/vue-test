@@ -11,9 +11,9 @@ export default {
   name: 'App',
   data() {
       return {
-        name: process.env.VUE_APP_NAME,
-        var1: process.env.VUE_APP_1,
-        var2: process.env.VUE_APP_2
+        name: process.env.VAR1,
+        var1: process.env.VAR2,
+        var2: process.env.VAR3
       };
     },
 }
