@@ -8,11 +8,11 @@ jobs:
 
       - name: Show dev secrets
         env:
-            VUE_APP_NAME: ${{ vars.VUE_APP_NAME }}
-        run: echo ${{ vars.VUE_APP_NAME }}
+            VUE_APP_NAME: ${{ secrets.VUE_APP_NAME }}
+        run: echo ${{ secrets.VUE_APP_NAME }}
 
       - name: Build the Docker image
         run: docker build -t test .
 
       - name: Run the Docker container
-        run: docker run -d -e "API_SECRET=${API_SECRET}" -p 8080:80 --name test_container -d test
+        run: docker run -d -e "VUE_APP_NAME=${VUE_APP_NAME}" -p 8080:80 --name test_container -d test
