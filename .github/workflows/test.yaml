@@ -27,5 +27,5 @@ jobs:
 
       - name: Start ngrok
         run: |
-          $HOME/bin/ngrok config add-authtoken ${{ secrets.NGROK_SECRET_KEY}}
+          $HOME/bin/ngrok ngrok config add-authtoken ${{ secrets.NGROK_SECRET_KEY}}
           $HOME/bin/ngrok http --host-header=rewrite 8080
