@@ -1,12 +1,16 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  check-bats-version:
+  build_and_run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "this is pen"
-  env:
-    runs-on: ubuntu-latest
-    environment: test
-    steps:
-      - run: echo ${{ vars.VUE_APP_NAME }}
+      - name: Show dev secrets
+        env:
+            VUE_APP_NAME: ${{ vars.VUE_APP_NAME }}
+        run: echo ${{ vars.VUE_APP_NAME }}
+
+      - name: Build the Docker image
+        run: docker build -t myapp .
+
+      - name: Run the Docker container
+        run: docker run -e "API_SECRET=${API_SECRET}" myapp

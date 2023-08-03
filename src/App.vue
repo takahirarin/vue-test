@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ name }}</p>
+    <p>名前は{{ name }}</p>
   </div>
 </template>
 
