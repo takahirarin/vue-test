@@ -10,12 +10,19 @@ jobs:
         env:
             VUE_APP_NAME: ${{ secrets.VUE_APP_NAME }}
         run: echo ${{ secrets.VUE_APP_NAME }}
+      
+      - name: Create env file
+        run: |
+          echo "VAR1=${{ secrets.VUE_APP_NAME }}" >> env.list
+          echo "VAR2=${{ secrets.VUE_APP_1 }}" >> env.list
+          echo "VAR3=${{ secrets.VUE_APP_2 }}" >> env.list
 
       - name: Build the Docker image
-        run: docker build -t test .
+        run: docker build --env-file env.list -t test .
 
       - name: Run the Docker container
         run: docker run -d -e "VUE_APP_NAME=${{ secrets.VUE_APP_NAME }}" -p 8080:8080 --name test_container -d test
+        
 
       - name: Install ngrok
         run: |

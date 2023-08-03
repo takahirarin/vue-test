@@ -1,6 +1,8 @@
 <template>
   <div>
     <p>名前は{{ name }}</p>
+    <p>出身は{{ var1 }}</p>
+    <p>地元は{{ var2 }}</p>
   </div>
 </template>
 
@@ -10,6 +12,8 @@ export default {
   data() {
       return {
         name: process.env.VUE_APP_NAME,
+        var1: process.env.VUE_APP_1,
+        var2: process.env.VUE_APP_2
       };
     },
 }
