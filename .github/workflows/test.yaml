@@ -15,7 +15,7 @@ jobs:
         run: docker build -t test .
 
       - name: Run the Docker container
-        run: docker run -d -e "VUE_APP_NAME=${VUE_APP_NAME}" -p 8080:80 --name test_container -d test
+        run: docker run -d -e "VUE_APP_NAME=${VUE_APP_NAME}" -p 8080:8080 --name test_container -d test
       
       - name: Ngrok Tunnel Action
         uses: LuisBoto/ngrok-tunnel-action@v0.1.7.2
