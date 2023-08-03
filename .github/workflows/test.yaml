@@ -16,3 +16,14 @@ jobs:
 
       - name: Run the Docker container
         run: docker run -d -e "VUE_APP_NAME=${VUE_APP_NAME}" -p 8080:80 --name test_container -d test
+
+      - name: Install ngrok
+        run: |
+          mkdir -p $HOME/bin
+          curl -s -L https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o $HOME/bin/ngrok.zip
+          unzip -o $HOME/bin/ngrok.zip -d $HOME/bin
+        env:
+          NGROK_SECRET_KEY: ${{ secrets.NGROK_SECRET_KEY}} # ngrokの認証トークンをGitHubのSecretsに設定しておく必要があります
+
+      - name: Start ngrok
+        run: $HOME/bin/ngrok http 8080
