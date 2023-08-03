@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>名前は{{ name }}</p>
+    <p>{{ process.env.VUE_APP_NAME }}</p>
   </div>
 </template>
 

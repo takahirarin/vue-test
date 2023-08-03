@@ -15,23 +15,7 @@ jobs:
         run: docker build -t test .
 
       - name: Run the Docker container
-        run: docker run -d -e "VUE_APP_NAME=${VUE_APP_NAME}" -p 8080:8080 --name test_container -d test
-      
-      # - name: Ngrok Tunnel Action
-      #   uses: LuisBoto/ngrok-tunnel-action@v0.1.7.2
-      #   with:
-      #     timeout: 1h
-      #     port: 8080
-      #     ngrok_authtoken: ${{ secrets.NGROK_SECRET_KEY}}
-      #     tunnel_type: http
-      #     save_url_to_filename: tunnelURL.md
-
-      # - name: Ngrok TCP Tunelling
-      #   uses: apogiatzis/ngrok-tunneling-action@v0.1.4
-      #   with:
-      #     timeout: 1h
-      #     port: 8080
-      #     ngrok_authtoken: ${{ secrets.NGROK_SECRET_KEY}}
+        run: docker run -d -e "VUE_APP_NAME=${{ secrets.VUE_APP_NAME }}" -p 8080:8080 --name test_container -d test
 
       - name: Install ngrok
         run: |
