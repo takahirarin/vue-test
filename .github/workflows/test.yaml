@@ -18,7 +18,7 @@ jobs:
           echo "VUE_APP_2=${{ secrets.VUE_APP_2 }}" >> list.env
       
       - name: docker compose
-        run: docker-compose up --build
+        run: docker-compose up --build -d
 
       # - name: Build the Docker image
       #   run: docker build -t test .
