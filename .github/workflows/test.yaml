@@ -26,4 +26,4 @@ jobs:
           NGROK_SECRET_KEY: ${{ secrets.NGROK_SECRET_KEY}} # ngrokの認証トークンをGitHubのSecretsに設定しておく必要があります
 
       - name: Start ngrok
-        run: $HOME/bin/ngrok http 8080
+        run: $HOME/bin/ngrok http --host-header=rewrite 8080
