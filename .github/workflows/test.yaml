@@ -10,7 +10,7 @@ jobs:
         run: echo ${{ vars.VUE_APP_NAME }}
 
       - name: Build the Docker image
-        run: docker build -t myapp .
+        run: docker build -t test .
 
       - name: Run the Docker container
         run: docker run -e "API_SECRET=${API_SECRET}" myapp
