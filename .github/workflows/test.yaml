@@ -16,6 +16,7 @@ jobs:
           echo "VAR1=${{ secrets.VUE_APP_NAME }}" >> env.list
           echo "VAR2=${{ secrets.VUE_APP_1 }}" >> env.list
           echo "VAR3=${{ secrets.VUE_APP_2 }}" >> env.list
+          ls
 
       - name: Build the Docker image
         run: docker build -t test .

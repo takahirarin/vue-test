@@ -17,7 +17,7 @@ export default {
       };
     },
 }
-console.log("env:",process.env.VUE_APP_NAME);
+console.log("env:",process.env.VAR1);
 </script>
 
 <style>
